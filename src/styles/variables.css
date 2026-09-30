@@ -1,0 +1,60 @@
+:root {
+  /* Colors */
+  --bg-app: #0f0f11;
+  --bg-card: #18191c;
+  --bg-card-hover: #202226;
+  --bg-surface: #24262a;
+  --bg-surface-elevated: #2e3036;
+  --bg-input: #121316;
+  
+  /* Brand Accent: Neon Lime */
+  --accent-lime: #C6FF4A;
+  --accent-lime-hover: #b4f02d;
+  --accent-lime-dim: rgba(198, 255, 74, 0.15);
+  --accent-lime-glow: rgba(198, 255, 74, 0.35);
+  --accent-lime-dark: #84ad18;
+  --text-on-lime: #0a0b0d;
+
+  /* Status Colors */
+  --color-success: #4ade80;
+  --color-success-dim: rgba(74, 222, 128, 0.15);
+  --color-danger: #f87171;
+  --color-danger-dim: rgba(248, 113, 113, 0.15);
+  --color-warning: #fbbf24;
+  --color-warning-dim: rgba(251, 191, 36, 0.15);
+  --color-info: #38bdf8;
+  --color-info-dim: rgba(56, 189, 248, 0.15);
+
+  /* Typography Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --text-faint: #4b5563;
+
+  /* Borders & Dividers */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-card: rgba(255, 255, 255, 0.1);
+  --border-focus: var(--accent-lime);
+
+  /* Radii */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --shadow-window: 0 25px 80px rgba(0, 0, 0, 0.8), 0 0 50px rgba(74, 222, 128, 0.04);
+  --shadow-lime: 0 6px 20px rgba(198, 255, 74, 0.3);
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* Fonts */
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}

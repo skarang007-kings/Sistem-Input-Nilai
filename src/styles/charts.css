@@ -1,0 +1,291 @@
+/* Charts & Visualizations */
+.charts-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .charts-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.donut-chart-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+@media (max-width: 480px) {
+  .donut-chart-container {
+    flex-direction: column;
+  }
+}
+
+.donut-svg-wrap {
+  width: 140px;
+  height: 140px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.donut-center-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.donut-center-val {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.donut-center-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.donut-legend {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 16px;
+  flex: 1;
+}
+
+.donut-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+}
+
+.donut-color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.donut-legend-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.donut-legend-name {
+  color: var(--text-secondary);
+  font-size: 11.5px;
+}
+
+.donut-legend-val {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* Area Sparkline Chart for Mapel Averages */
+.area-chart-wrap {
+  width: 100%;
+  height: 140px;
+  position: relative;
+}
+
+.area-chart-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.area-path {
+  fill: url(#greenGradient);
+  opacity: 0.35;
+}
+
+.line-path {
+  fill: none;
+  stroke: var(--accent-lime);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chart-point {
+  fill: var(--accent-lime);
+  stroke: #0f0f11;
+  stroke-width: 2;
+  transition: r 0.15s ease;
+  cursor: pointer;
+}
+
+.chart-point:hover {
+  r: 6;
+}
+
+/* Scan / Review Specific Components */
+.scanner-viewport {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  background: #000;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .scanner-viewport {
+    height: 70vh;
+  }
+}
+
+.scanner-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.paper-guide-overlay {
+  position: absolute;
+  inset: 24px;
+  border: 2px dashed rgba(198, 255, 74, 0.65);
+  border-radius: var(--radius-md);
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.paper-guide-text {
+  background: rgba(0, 0, 0, 0.75);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  color: var(--accent-lime);
+  align-self: center;
+  font-weight: 600;
+}
+
+.scanner-controls {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  z-index: 10;
+}
+
+.capture-btn {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #fff;
+  border: 4px solid var(--accent-lime);
+  box-shadow: 0 0 25px rgba(198, 255, 74, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease;
+}
+
+.capture-btn:active {
+  transform: scale(0.92);
+}
+
+.capture-btn-inner {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent-lime);
+}
+
+/* Review Screen Item Cards */
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.review-item {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.review-item.is-correct {
+  border-left: 4px solid var(--color-success);
+}
+
+.review-item.is-wrong {
+  border-left: 4px solid var(--color-danger);
+}
+
+.review-item.is-empty, .review-item.is-low-conf {
+  border-left: 4px solid var(--color-warning);
+  background: rgba(251, 191, 36, 0.04);
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-options {
+  display: flex;
+  gap: 6px;
+}
+
+.review-opt-btn {
+  flex: 1;
+  height: 38px;
+  border-radius: var(--radius-xs);
+  background: rgba(255, 255, 255, 0.05);
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s ease;
+}
+
+.review-opt-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.review-opt-btn.active-correct {
+  background: var(--color-success);
+  color: #0a0b0d;
+}
+
+.review-opt-btn.active-wrong {
+  background: var(--color-danger);
+  color: #fff;
+}
+
+.review-opt-btn.active-selected {
+  background: var(--accent-lime);
+  color: var(--text-on-lime);
+}
+
+.review-opt-btn.is-key-indicator {
+  border: 1px dashed var(--accent-lime);
+}

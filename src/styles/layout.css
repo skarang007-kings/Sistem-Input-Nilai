@@ -1,0 +1,356 @@
+/* Outer wrapper with soft green glowing background */
+.app-viewport {
+  min-height: 100vh;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+@media (min-width: 1024px) {
+  .app-viewport {
+    padding: 24px;
+  }
+}
+
+/* Floating App Window with rounded corners matching reference UI */
+.app-container {
+  width: 100%;
+  max-width: 1560px;
+  background-color: var(--bg-app);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-window);
+  display: grid;
+  grid-template-columns: 240px 1fr 290px;
+  min-height: calc(100vh - 48px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 1. Left Sidebar */
+.app-sidebar {
+  background: #121316;
+  border-right: 1px solid var(--border-subtle);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  user-select: none;
+}
+
+.teacher-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.teacher-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-lime), #10b981);
+  color: var(--text-on-lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.teacher-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.teacher-name {
+  font-weight: 600;
+  font-size: 13.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.teacher-role {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+}
+
+/* Search Box in sidebar */
+.sidebar-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-search input {
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  padding: 8px 12px 8px 34px;
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.sidebar-search input:focus {
+  border-color: var(--accent-lime);
+}
+
+.sidebar-search-icon {
+  position: absolute;
+  left: 12px;
+  color: var(--text-muted);
+  pointer-events: none;
+  display: flex;
+}
+
+.sidebar-search-badge {
+  position: absolute;
+  right: 10px;
+  font-size: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--text-muted);
+}
+
+/* Nav Menu */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.nav-section-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  padding: 10px 12px 4px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius-pill);
+  color: var(--text-secondary);
+  font-size: 13.5px;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+/* Active Nav Item - Neon Lime Pill */
+.nav-item.active {
+  background: var(--accent-lime);
+  color: var(--text-on-lime);
+  font-weight: 700;
+  box-shadow: var(--shadow-lime);
+}
+
+.nav-item.active svg {
+  stroke: var(--text-on-lime);
+}
+
+/* 2. Middle Main Content Area */
+.app-main {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  overflow-y: auto;
+  max-height: calc(100vh - 48px);
+}
+
+.app-main > * {
+  flex-shrink: 0; /* CRITICAL: Never vertically crush any cards, tabs, or headers */
+}
+
+
+.main-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbar-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.topbar-breadcrumbs span.active {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.topbar-btn:hover {
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.page-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+/* 3. Right Sidebar */
+.app-panel-right {
+  background: #141518;
+  border-left: 1px solid var(--border-subtle);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow-y: auto;
+  max-height: calc(100vh - 48px);
+}
+
+/* Mobile Bottom Navigation */
+.mobile-bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(15, 15, 17, 0.95);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border-subtle);
+  padding: 8px 12px;
+  z-index: 999;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.mobile-nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  color: var(--text-secondary);
+  font-size: 10.5px;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  min-width: 48px;
+  min-height: 44px;
+  justify-content: center;
+}
+
+.mobile-nav-btn.active {
+  color: var(--accent-lime);
+}
+
+.mobile-scan-center-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--accent-lime);
+  color: var(--text-on-lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(198, 255, 74, 0.45);
+  transform: translateY(-12px);
+  border: 3px solid #0f0f11;
+  transition: transform 0.15s ease;
+}
+
+.mobile-scan-center-btn:active {
+  transform: translateY(-9px) scale(0.95);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+  .app-container {
+    grid-template-columns: 80px 1fr;
+  }
+  .app-sidebar {
+    padding: 20px 10px;
+    align-items: center;
+  }
+  .teacher-info, .sidebar-search, .nav-section-title, .nav-item span {
+    display: none;
+  }
+  .nav-item {
+    padding: 12px;
+    justify-content: center;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+  }
+  .app-panel-right {
+    display: none; /* moves into main or tab in tablet */
+  }
+}
+
+@media (max-width: 768px) {
+  .app-viewport {
+    padding: 0;
+  }
+  .app-container {
+    border-radius: 0;
+    border: none;
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+  }
+  .app-sidebar {
+    display: none;
+  }
+  .app-main {
+    padding: 16px 16px 84px;
+    max-height: none;
+  }
+  .mobile-bottom-nav {
+    display: flex;
+  }
+}
